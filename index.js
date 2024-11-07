@@ -27,7 +27,7 @@ const initializeBooks = async () => {
 };
 
 // Route to render the books page
-app.get('/books', async (req, res) => {
+app.get('/', async (req, res) => {
     try {
         const books = await Book.find();
         res.render('books', { books });
@@ -37,7 +37,7 @@ app.get('/books', async (req, res) => {
 });
 
 // Route to delete a book by ID
-app.delete('/books/:id', async (req, res) => {
+app.delete('/:id', async (req, res) => {
     try {
         const bookId = req.params.id;
         const result = await Book.findByIdAndDelete(bookId);
